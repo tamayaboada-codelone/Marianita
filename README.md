@@ -120,3 +120,8 @@ Los colores están definidos como variables CSS en `static/css/base.css`:
 
 Las fuentes son Cormorant Garamond, Dancing Script, Montserrat y Playfair Display,
 cargadas desde Google Fonts.
+
+## En producción
+
+https://marianita-six.vercel.app
+
