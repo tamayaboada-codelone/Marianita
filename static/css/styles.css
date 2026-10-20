@@ -1,0 +1,199 @@
+/* ==========================================================
+   STYLES.CSS  —  estilos de la página principal (index)
+   y de la página "Nosotros"
+   ========================================================== */
+
+section {
+    width: 100%;
+    max-width: 950px;       
+    margin: 0 auto;         
+    padding: 30px 20px;      
+    display: flex;           
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+/* --- TRUCO FULL WIDTH --- 
+   Cuando quieras que una sección ocupe el 100% del ancho (de lado a lado de la pantalla),
+   simplemente le pones en HTML: <section class="ancho-total"> */
+section.ancho-total {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+/* --- MENSAJE DE LA IZQUIERDA --- */
+.message {
+    flex: 1;
+    min-width: 280px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--texto);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.message h2 {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+    font-size: 2.8rem;
+    color: var(--rosa-hondo);
+    margin-bottom: 10px;
+}
+
+.message h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--texto-suave);
+    margin-bottom: 12px;
+}
+
+.message p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.resaltado {
+    color: var(--rosa-fuerte);
+    font-weight: 600;
+    text-decoration-style: wavy;
+
+}
+
+/* --- TARJETA DE LA DERECHA --- */
+.card {
+    flex: 1;
+    max-width: 380px;
+    min-width: 280px;
+    background: var(--cristal);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--borde);
+    border-radius: 25px;
+    padding: 30px 25px;
+    text-align: left;
+    box-shadow: var(--sombra);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Funciona como un marco: corta cualquier cosa que intente salirse de las esquinas */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-hover);
+}
+
+/* Título dentro de una tarjeta (ej. "2 meses") */
+.card h2,
+.card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--rosa-hondo);
+    margin-bottom: 4px;
+}
+
+.card-date {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--vino);
+    background: rgba(255, 255, 255, 0.7);
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--texto);
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.card-img {
+    width: 320px;              
+    height: 200px;              
+    border-radius: 15px;     
+    display: block;
+}
+
+.resaltado-card {
+    color: var(--rosa-fuerte);
+    font-weight: 600;
+}
+
+
+/* mi div para texto general*/ 
+.general {
+    justify-content: center;
+    flex: 2;
+    min-width: 290px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--texto);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.general h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--rosa-hondo);
+    margin-bottom: 10px;
+}
+
+.general h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--texto-suave);
+    margin-bottom: 12px;
+}
+
+.general p {
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.general a {
+    color: var(--rosa-fuerte);
+    font-weight: 600;
+}
+
+.general-2{
+
+    transform: translateX(50px);
+    flex: 2;
+    min-width: 290px;
+    font-family: inherit;
+    font-size: 1.8rem;
+    color: var(--texto);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.general-2 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--rosa-hondo);
+    margin-bottom: 10px;
+}
+
+.general-2 h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--texto-suave);
+    margin-bottom: 12px;
+}
+
+/* En pantallas estrechas el desplazamiento lateral de .general-2
+   saca el contenido fuera de la pantalla, así que ahí se quita. */
+@media (max-width: 1000px) {
+    .general-2 {
+        transform: none;
+    }
+}

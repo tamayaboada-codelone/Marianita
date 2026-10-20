@@ -1,0 +1,256 @@
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, var(--rosa-fondo) 100%, var(--lila) 50%, var(--rosa-panel) 40%);
+      color: var(--texto);
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+    }
+
+    .pagina-carta .header,
+    .pagina-carta .nav {
+      width: 100%;
+    }
+
+    .pagina-carta .container {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    /* Fondo animado de corazones */
+    #canvas-hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .title {
+      color: var(--rosa-hondo);
+      font-family: 'Dancing Script', cursive;
+      font-weight: 600;
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+      transition: opacity 0.5s;
+    }
+
+    /* Al abrir el sobre, el título se desvanece para no quedar tapado */
+    .pagina-carta.envelope-abierto .title {
+      opacity: 0;
+    }
+
+    /* Envelope Wrapper */
+    .envelope-wrapper {
+      position: relative;
+      width: 320px;
+      height: 220px;
+      cursor: pointer;
+      perspective: 1000px;
+    }
+
+    /* Sobre principal */
+    .envelope {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #f2aac6;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(136, 14, 79, 0.3);
+    }
+
+    /* Solapa superior */
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 160px solid transparent;
+      border-right: 160px solid transparent;
+      border-top: 120px solid #f07fa8;
+      transform-origin: top;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.2s;
+      z-index: 4;
+      filter: drop-shadow(0 3px 5px rgba(0,0,0,0.15));
+    }
+
+    /* Sello de cera */
+    .wax-seal {
+      position: absolute;
+      top: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 48px;
+      background: radial-gradient(circle, #e33b3b 0%, #a01a1a 100%);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffd700;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.35), inset 0 0 5px rgba(0,0,0,0.4);
+      border: 2px solid #d32f2f;
+      z-index: 5;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    /* Bolsillo frontal */
+    .pocket {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 160px solid #ef5f8e;
+      border-right: 160px solid #ef5f8e;
+      border-top: 110px solid transparent;
+      border-bottom: 110px solid #e8507f;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      z-index: 3;
+    }
+
+    /* La Carta Interior
+       (se llama .carta-miniatura y no .card para no chocar con
+        la clase .card de styles.css) */
+    .carta-miniatura {
+      position: absolute;
+      bottom: 12px;
+      left: 15px;
+      width: 290px;
+      height: 195px;
+      background: #fffdf9;
+      border-radius: 10px;
+      padding: 18px 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.4s, width 0.6s, height 0.6s;
+      z-index: 2;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #f8bbd0;
+    }
+
+    /* Estampa decorativa */
+    .stamp {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 38px;
+      background: #ffebee;
+      border: 1px dashed #e91e63;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.9rem;
+      transform: rotate(5deg);
+    }
+
+    /* Polaroid con Foto */
+    .polaroid {
+      background: white;
+      padding: 6px 6px 14px 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      transform: rotate(-3deg);
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #eee;
+    }
+
+    .polaroid img {
+      width: 100px;
+      height: 80px;
+      object-fit: cover;
+      display: block;
+      border-radius: 3px;
+    }
+
+    /* Mensaje impreso y caligrafía */
+    .card-title {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 600;
+      color: var(--rosa-fuerte);
+      font-size: 1.6rem;
+      margin-top: 2px;
+    }
+
+    .card-text {
+      font-size: 0.82rem;
+      color: var(--texto);
+      text-align: center;
+      line-height: 1.45;
+      font-weight: 400;
+      max-width: 90%;
+    }
+
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 600;
+      color: var(--rosa-fuerte);
+      font-size: 1.2rem;
+      margin-top: auto;
+    }
+
+    /* Indicador interactivo inferior */
+    .tap-hint {
+      margin-top: 35px;
+      font-size: 0.85rem;
+      color: var(--vino);
+      background: rgba(255, 255, 255, 0.6);
+      padding: 8px 18px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+      letter-spacing: 0.5px;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 1; }
+    }
+
+    /* --- ESTADO ABIERTO --- */
+    .envelope-wrapper.open .flap {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+
+    .envelope-wrapper.open .wax-seal {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.5);
+    }
+
+    .envelope-wrapper.open .carta-miniatura {
+      /* La carta sube y se expande para leerse fácil.
+         310px es lo que necesita el texto actual (308px) para no recortarse.
+         -40px de subida la deja por debajo del nav, sin solaparse. */
+      transform: translateY(-40px) scale(1.08);
+      z-index: 10;
+      height: 310px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }

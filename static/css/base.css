@@ -1,0 +1,101 @@
+/* ==========================================================
+   BASE.CSS  —  estilos compartidos por TODAS las páginas
+   (reset, paleta, tipografía general, header y navegación)
+   ========================================================== */
+
+/* --- PALETA ---
+   Los mismos tonos que usabas, pero con más presencia:
+   los textos y acentos salen de la familia de la carta
+   (#902960, #d81b60, #6e1b40) en vez de blanco. */
+:root {
+    /* Fondos */
+    --rosa-fondo:  #e8d1c5;
+    --rosa-panel:  #eddcd2;
+    --lila:        #e0a8dc;
+
+    /* Textos y acentos */
+    --texto:       #4a2b36;
+    --texto-suave: #6b4450;
+    --rosa-fuerte: #d81b60;
+    --rosa-hondo:  #902960;
+    --vino:        #6e1b40;
+
+    /* Tarjetas de cristal */
+    --cristal:      rgba(255, 255, 255, 0.40);
+    --borde:        rgba(255, 255, 255, 0.60);
+    --sombra:       0 10px 30px rgba(110, 27, 64, 0.14);
+    --sombra-hover: 0 15px 35px rgba(110, 27, 64, 0.20);
+}
+
+/* --- RESET GENERAL --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--texto);
+    background-color: var(--rosa-fondo);
+}
+
+/* --- ENCABEZADOS Y NAVEGACIÓN --- */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--rosa-hondo);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Título del sitio, en la cabecera (no es un h1: el de cada
+   página va en su contenido) */
+.titulo-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--rosa-hondo);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+    background-color: var(--rosa-panel);
+    text-align: center;
+    padding: 0;
+}
+
+.nav {
+    background-color: var(--rosa-panel);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.nav a {
+    color: var(--rosa-hondo);
+    padding: 0px 10px 0px 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+    text-align: center;
+}
+
+.nav a:hover {
+    background-color: var(--rosa-fondo);
+    border-radius: 4px;
+}
+
+/* Botón de "Inicio" (volver a la página principal) */
+.nav a.inicio {
+    border: 1px solid var(--rosa-hondo);
+    border-radius: 20px;
+    margin: 4px 6px;
+    padding: 5px 16px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav a.inicio:hover {
+    background-color: var(--rosa-hondo);
+    color: var(--rosa-panel);
+    border-radius: 20px;
+}

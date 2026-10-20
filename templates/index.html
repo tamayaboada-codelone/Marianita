@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Para Mariana{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <section>
+        <div class="message">
+            <h1>Te amo</h1>
+            <p><span class="resaltado">para ti </span>porque tú me has hecho realmente feliz.</p> 
+            <p>lo que tú necesitas es alguien que te ame para toda la vida... <span class="resaltado">Así como yo</span></p> 
+        </div>
+
+        <div class="card">
+            <span class="card-date">20/09/2026</span>
+            <p class="card-text">Ese fue el día que nos hicimos novios.</p>
+            <p class="card-text">Y no sabes lo <span class="resaltado-card">feliz</span> que me has hecho.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="general">
+            <h2>Distancia</h2> 
+            <h3>Es dificil pero...</h3>
+            <p>sé que es algo <span class="resaltado">que no es para siempre</span></p>
+            <p>Contigo todo será posible, juntos podremos salir adelante y tener nuestra vida juntos</p>
+        </div>
+
+        <div class="general-2">
+            <h2>
+                Hay dias que no serán como planeamos
+            </h2>
+            <h3>
+                pero siempre estaremos juntos
+            </h3>
+            <h3>siempreeee</h3>
+        </div>
+    </section>
+   
+    <section>
+        <div class="general">
+            <h2>
+                Y ahora que estamos empezando como pareja...
+            </h2>
+            <p>Tendremos muchas experiencias juntos</p>
+        </div>
+        <div class="general-2">
+            <div class="card">
+                <h3>2 meses</h3>
+                <p class="card-text">De habernos conocido</p>
+                <h3>1 mes</h3>
+                <p class="card-text">De noviosss hermosos y preciosos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EJEMPLO: Si un día quieres una sección FULL WIDTH de lado a lado -->
+    <!-- <section class="ancho-total"> ... </section> -->
+
+{% endblock %}

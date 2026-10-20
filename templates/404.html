@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}No encontramos la página{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <section>
+        <div class="general">
+            <h1>404</h1>
+            <h3>Esta página no existe</h3>
+            <p>Pero la carta sí: <a href="{{ url_for('paginas.carta') }}">ábrela aquí</a></p>
+        </div>
+    </section>
+
+{% endblock %}

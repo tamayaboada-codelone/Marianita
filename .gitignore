@@ -1,0 +1,15 @@
+# Entorno virtual
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Variables de entorno
+.env

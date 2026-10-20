@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Para Mariana{% endblock %}</title>
+
+    <!-- Fuentes de Google Fonts
+         Solo se piden los pesos que realmente se usan:
+         Cormorant 400/600, Dancing 600, Montserrat 500/700, Playfair 400/700
+         display=swap evita el parpadeo de texto invisible al cargar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Dancing+Script:wght@600&family=Montserrat:wght@500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos compartidos por todas las páginas (header, nav, reset) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+
+    <!-- Estilos propios de cada página -->
+    {% block styles %}{% endblock %}
+</head>
+
+<!-- Cada página puede añadir sus clases al body con el bloque body_class -->
+<body{% block body_class %}{% endblock %}>
+
+    <!-- Header + navegación, iguales en todas las páginas -->
+    {% include 'partials/header.html' %}
+
+    <!-- Contenido de cada página -->
+    {% block content %}{% endblock %}
+
+    <!-- Scripts de cada página -->
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Nosotros{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nosotros.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <!-- TÍTULO DE LA PÁGINA (cámbialo o bórralo si no lo quieres) -->
+    <div class="galeria-seccion">
+        <h2 class="galeria-titulo">Nuestras fotos</h2>
+
+        <!-- La galería se arma sola con la lista de paginas/datos.py -->
+        <div class="galeria">
+            {% for foto in galeria %}
+            <figure class="galeria-item">
+                <img src="{{ url_for('static', filename='img/galeria/' ~ foto.archivo) }}"
+                     alt="{{ foto.titulo }}"
+                     {% if loop.index > 3 %}loading="lazy"{% endif %}>
+                {% if foto.titulo %}
+                <figcaption>{{ foto.titulo }}</figcaption>
+                {% endif %}
+            </figure>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <!-- Ventana que se abre al hacer clic en una foto -->
+    <dialog id="lightbox">
+        <img src="" alt="">
+        <figcaption></figcaption>
+    </dialog>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/galeria.js') }}" defer></script>
+{% endblock %}

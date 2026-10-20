@@ -1,0 +1,16 @@
+<!-- ==========================================================
+     HEADER + NAVEGACIÓN
+     Se incluye en base.html, así que aparece automáticamente
+     en todas las páginas. Los enlaces usan url_for() para que
+     apunten siempre a la ruta real de Flask.
+     ========================================================== -->
+
+<header class="header">
+    <div class="titulo-header">M &amp; T</div>
+</header>
+
+<nav class="nav">
+    <a href="{{ url_for('paginas.index') }}" class="inicio">Inicio</a>
+    <a href="{{ url_for('paginas.nosotros') }}">Nosotros</a>
+    <a href="{{ url_for('paginas.carta') }}">Una carta para ti...</a>
+</nav>

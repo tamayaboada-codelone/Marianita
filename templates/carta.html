@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Marianita/Vampirito{% endblock %}
+
+{% block body_class %} class="pagina-carta"{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/carta.css') }}">
+{% endblock %}
+
+{% block content %}
+
+  <canvas id="canvas-hearts"></canvas>
+
+  <div class="container">
+    <h1 class="title">Para ti mi corazón, con todo mi amor</h1>
+
+    <div class="envelope-wrapper" id="envelope">
+      <div class="envelope">
+        <div class="flap"></div>
+        <div class="wax-seal">❤️</div>
+        <div class="pocket"></div>
+        
+        <!-- Carta interior -->
+        <div class="letter carta-miniatura">
+          <div class="stamp">💖</div>
+           
+          <div class="polaroid">
+            <img src="{{ url_for('static', filename='img/galeria/IMG_20261002_213751379_HDR.webp') }}" alt="Foto juntos">
+          </div>
+
+          <h2 class="card-title">¡¡¡¡Feliz mes mi amor!!!!</h2>
+          <p class="card-text">
+            Quiero que sepas que te amo incondicionalmente, te amo demasiado
+          </p>
+          <p class="card-text">
+            Yo te necesito y siempre te necesitare a mi lado
+            Y espero que duremos demasiado tiempo juntos y si se puede que sea eterno
+          </p>
+          <span class="signature">Te amo infinitamente Marianaaaa</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="tap-hint" id="hint">Toca el sobre para abrirlo</p>
+  </div>
+
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/carta.js') }}" defer></script>
+{% endblock %}
